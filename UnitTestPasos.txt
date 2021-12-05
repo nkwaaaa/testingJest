@@ -1,0 +1,46 @@
+1.Inicializo el proyecto con npm init.
+2.Instalo jest en el proyecto, usando en la terminal el comando:
+
+npm install --save-dev jest
+
+3. Edito package.json ("test": "jest")
+4. Creo carpeta __test__
+5. Creo archivo donde haré los test con el formato:
+
+nombreArchivoAtestear.test.js
+
+Por ej: util.test.js
+
+6. npm run test en terminal para correr los tests (una suite, abarca todos los test en un mismo archivo)
+------------------------------------------------------------------------------------
+
++correr un solo test en terminal: npm test -- -t "nombre del test"
+
++En el archivo json, en script, "test" ="jest --watchALl", mantiene en ejecución los test (cuando corrijo y guardo algo, se vuelven a correr)
+
++MATCHERS DE JEST: https://jestjs.io/docs/using-matchers
+
++ctrl + C ---> Detiene la ejecución del proceso.
+------------------------------------------------------------
+++configurar la cobertura:
+en el archivo json, agregar "test:coverage":"jest --coverage"
+en la terminal se ejecuta con npm run test:coverage
+
+------------------------------------------------------------
+Para que la cobertura abarque todo el proyecto y no solo un archivo:
+
+se crea un archivo de configuración de jest:
+
+jest.config.json
+
+En el mismo se especifica la siguiente configuración:
+
+{
+"collectCoverageFrom":["*.{js,jsx}"]
+}
+
+Luego en package.json agrego:
+
+"test": "jest --config = jest.config.json"
+
+Ahora cuando corro la cobertura, lo hace en relacion a todos los archivos .js y .jsx
